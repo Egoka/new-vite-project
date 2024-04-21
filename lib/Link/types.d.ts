@@ -2,4 +2,5 @@ export type BadgeType = 'default' | 'dark' | 'red' | 'green' | 'yellow' | 'indig
 export type BadgeSize = 'xs' | 'sm'
 export type ILinkProps = {
   href: string
+  className?: string
 }
