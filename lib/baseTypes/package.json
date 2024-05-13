@@ -1,0 +1,6 @@
+{
+    "main": "./baseTypes.cjs.js",
+    "module": "./baseTypes.esm.js",
+    "unpkg": "./baseTypes.min.js",
+    "types": "./BaseTypes.ts"
+}

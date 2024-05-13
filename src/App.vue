@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
-import type { BadgeType}from "../lib/Link";
-import {Link, BadgeSize} from "../lib/Link";
+// import type { BadgeType}from "../lib/Link";
+// import {Link, BadgeSize} from "../lib/Link";
 </script>
 
 <template>

@@ -1,0 +1,6 @@
+{
+    "main": "./link.cjs.js",
+    "module": "./link.esm.js",
+    "unpkg": "./link.min.js",
+    "types": "./Link.d.ts"
+}

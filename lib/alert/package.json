@@ -1,0 +1,6 @@
+{
+    "main": "./alert.cjs.js",
+    "module": "./alert.esm.js",
+    "unpkg": "./alert.min.js",
+    "types": "./Alert.d.ts"
+}
