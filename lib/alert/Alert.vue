@@ -15,8 +15,8 @@ import {
 } from '@heroicons/vue/20/solid';
 import Button from 'primevue/button';
 import type {IAlertProps} from 'primevue/alert';
-import type {StyleClass} from 'primevue/baseTypes/BaseTypes';
-import {cn} from 'primevue/utils/tailwind';
+import type {StyleClass} from 'primevue/baseTypes';
+import {tailwind} from 'primevue/utils';
 // ---------------------------------------
 const props = defineProps<IAlertProps>()
 const emit = defineEmits<{
@@ -175,7 +175,7 @@ export function openAlert(optionsAlert:IAlert) {
     }, 600)
   }
   function alertClassPosition(position:IAlert["position"]="center"):Array<string>{
-    const arrayClass = [];
+    const arrayClass:Array<string> = [];
     if (position === "center") {
       arrayClass.push("top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2")}
     if(position.includes("bottom")) { arrayClass.push(`bottom-0 mb-5`)
@@ -195,7 +195,7 @@ export function openAlert(optionsAlert:IAlert) {
               enter-active-class="transition-all ease-in-out duration-500" :enter-from-class="startEnterAndLeaveClass" :enter-to-class="endEnterAndLeaveClass">
     <div
       v-if="isVisible"
-      :class="cn(
+      :class="tailwind.cn(
         'alert-body p-4 w-auto max-w-[89vw] rounded-md',
         style.body,
         classClass,
@@ -204,24 +204,24 @@ export function openAlert(optionsAlert:IAlert) {
       :style="props.style">
       <div class="flex">
         <div class="shrink-0">
-          <component :is="icon" aria-hidden="true" :class="cn('h-5 w-5', style.icon)"/>
+          <component :is="icon" aria-hidden="true" :class="tailwind.cn('h-5 w-5', style.icon)"/>
         </div>
         <div class="ml-3">
-          <h3 v-if="title?.length" :class="cn('text-sm font-medium', style.title)">{{ title }}</h3>
-          <div v-if="subtitle" :class="cn('text-sm', !title?.length||'mt-2', style.subtitle)" v-html="subtitle"/>
-          <div v-if="!!$slots?.default" :class="cn('text-sm', !title?.length||'mt-2', style.subtitle)"><slot/></div>
+          <h3 v-if="title?.length" :class="tailwind.cn('text-sm font-medium', style.title)">{{ title }}</h3>
+          <div v-if="subtitle" :class="tailwind.cn('text-sm', !title?.length||'mt-2', style.subtitle)" v-html="subtitle"/>
+          <div v-if="!!$slots?.default" :class="tailwind.cn('text-sm', !title?.length||'mt-2', style.subtitle)"><slot/></div>
         </div>
         <div v-if="isCloseButton || displayTime === 0" class="ml-auto pl-3">
           <div class="-mx-1.5 -my-2">
             <button
               type="button"
-              :class="cn(
+              :class="tailwind.cn(
                 'button-delete','rounded-md m-0 h-9 w-9 px-2',
                 style.button,
                 'py-2 text-sm font-medium inline-flex items-center justify-center transition-colors duration-300'
                )"
               @click="close">
-              <XMarkIcon aria-hidden="true" :class="cn('h-5 w-5', style.buttonIcon)"/>
+              <XMarkIcon aria-hidden="true" :class="tailwind.cn('h-5 w-5', style.buttonIcon)"/>
             </button>
           </div>
         </div>

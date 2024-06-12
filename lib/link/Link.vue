@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import Button from 'primevue/button';
 import type {ILinkProps} from "primevue/link";
+import {ref} from "vue";
 defineProps<ILinkProps>()
+const color = ref("#ababb4")
 </script>
 
 <template>
@@ -12,6 +14,6 @@ defineProps<ILinkProps>()
 </template>
 <style scoped lang="css">
 .link {
-  color: #535bf2;
+  color: v-bind(color);
 }
 </style>
