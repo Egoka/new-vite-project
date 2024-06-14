@@ -86,3 +86,4 @@ docs/.vitepress/cache
 
 .idea
 .npmrc
+package-lock.json
