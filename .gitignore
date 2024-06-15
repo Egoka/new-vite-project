@@ -1,4 +1,5 @@
 public_html
+package-lock.json
 
 # Vite
 node_modules
@@ -86,4 +87,3 @@ docs/.vitepress/cache
 
 .idea
 .npmrc
-package-lock.json

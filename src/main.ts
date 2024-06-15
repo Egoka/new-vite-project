@@ -1,12 +1,12 @@
-import './assets/main.css'
+import "./assets/main.css"
 // import './assets/style.css'
 // import '@egorkas/vite-components/dist/style.css'
 
-import { createApp } from 'vue'
+import { createApp } from "vue"
 // import { createPinia } from 'pinia'
 // import CodeBlock from 'vue3-code-block';
 
-import App from './App.vue'
+import App from "./App.vue"
 // import router from './router'
 
 const app = createApp(App)
@@ -15,4 +15,6 @@ const app = createApp(App)
 // app.use(router)
 // @ts-ignore
 // app.use(CodeBlock)
-app.mount('#app')
+const t = 5
+
+app.mount("#app")

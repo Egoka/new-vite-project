@@ -8,7 +8,7 @@
     XMarkIcon,
     ChatBubbleOvalLeftIcon
   } from "@heroicons/vue/20/solid"
-  import Button from "primevue/button"
+  // import Button from "primevue/button"
   import type { IAlertProps } from "primevue/alert"
   import type { StyleClass } from "primevue/baseTypes"
   import { tailwind } from "primevue/utils"
@@ -101,6 +101,7 @@
           buttonIcon: "fill-red-500 dark:fill-red-500"
         }
       case "neutral":
+      default:
         return {
           body: "bg-neutral-100 dark:bg-neutral-800",
           icon: "text-neutral-400 dark:text-neutral-600",
@@ -122,6 +123,7 @@
       case "error":
         return XCircleIcon
       case "neutral":
+      default:
         return ChatBubbleOvalLeftIcon
     }
   })
@@ -155,7 +157,7 @@
   })
   watch(
     () => props.modelValue,
-    (value) => {
+    (value: boolean) => {
       isVisible.value = value
       if (displayTime.value >= 100 && value) {
         setTimeout(() => {
@@ -204,13 +206,13 @@
     /////////////////////////////////////////////////////////
     const alertBody = document.querySelector(`.alert-${options.position}`)
     if (alertBody) {
-      let divAlert = document.createElement("div")
+      const divAlert = document.createElement("div")
       divAlert.id = alertId
       divAlert.className = "z-[100]"
       divAlert.style.cssText = "pointer-events: all;"
       alertBody.prepend(divAlert)
     } else {
-      let div = document.createElement("div")
+      const div = document.createElement("div")
       div.className = `alert-${options.position} fixed z-[100] flex gap-4 overflow-auto max-h-screen pointer-events-none transition-all duration-500 ${
         options.position.includes("bottom") ? "flex-col-reverse" : "flex-col"
       } ${
@@ -222,7 +224,7 @@
       } ${alertClassPosition(options.position).join(" ")}`
       document.body.append(div)
       // SET div alert
-      let divAlert = document.createElement("div")
+      const divAlert = document.createElement("div")
       divAlert.id = alertId
       divAlert.className = "z-[100]"
       divAlert.style.cssText = "pointer-events: all;"
