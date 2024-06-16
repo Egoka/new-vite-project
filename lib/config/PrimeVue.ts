@@ -1,24 +1,24 @@
-import { inject, reactive } from 'vue';
-import {ObjectPlugin} from "@vue/runtime-core";
+import { inject, reactive } from "vue"
+import { ObjectPlugin } from "vue"
 export const defaultOptions = {}
-const PrimeVueSymbol = Symbol();
+const PrimeVueSymbol = Symbol()
 export function usePrimeVue() {
-  const PrimeVue = inject(PrimeVueSymbol);
+  const PrimeVue = inject(PrimeVueSymbol)
 
   if (!PrimeVue) {
-    throw new Error('PrimeVue is not installed!');
+    throw new Error("PrimeVue is not installed!")
   }
 
-  return PrimeVue;
+  return PrimeVue
 }
 export default {
   install: (app, options) => {
-    let configOptions = options ? { ...defaultOptions, ...options } : { ...defaultOptions };
+    const configOptions = options ? { ...defaultOptions, ...options } : { ...defaultOptions }
     const PrimeVue = {
-      config: reactive(configOptions),
-    };
+      config: reactive(configOptions)
+    }
 
-    app.config.globalProperties.$primevue = PrimeVue;
-    app.provide(PrimeVueSymbol, PrimeVue);
+    app.config.globalProperties.$primevue = PrimeVue
+    app.provide(PrimeVueSymbol, PrimeVue)
   }
-} as ObjectPlugin;
+} as ObjectPlugin

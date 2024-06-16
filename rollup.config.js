@@ -12,8 +12,8 @@ import terser from "@rollup/plugin-terser"
 import { babel } from "@rollup/plugin-babel"
 import typescript from "rollup-plugin-typescript2"
 // =====================================================================================================================
-let entries = []
-let core = {}
+const entries = []
+const core = {}
 // =====================================================================================================================
 const PROJECT_NAME = "primevue"
 const CORE_LIB_DIR = "lib"
@@ -170,7 +170,7 @@ function addSFC(coreDir) {
     .filter((dir) => dir.isDirectory())
     .forEach(({ name: folderName }) => {
       fs.readdirSync(fileURLToPath(new URL(`${coreDir}/${folderName}`, import.meta.url))).forEach((file) => {
-        let name = file.split(/(.vue)$|(.js)$/)[0].toLowerCase()
+        const name = file.split(/(.vue)$|(.js)$/)[0].toLowerCase()
 
         if (/\.vue$/.test(file) && name === folderName) {
           addEntry(folderName, file, name)
@@ -210,7 +210,9 @@ function copyDependencies(inFolder, outFolder, subFolder) {
               }
             }
           )
-        } catch {}
+        } catch (e) {
+          /* empty */
+        }
       }
     })
 }

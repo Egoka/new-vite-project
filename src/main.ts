@@ -15,6 +15,5 @@ const app = createApp(App)
 // app.use(router)
 // @ts-ignore
 // app.use(CodeBlock)
-const t = 5
 
 app.mount("#app")

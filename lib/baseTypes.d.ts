@@ -1,4 +1,4 @@
-import { AllowedComponentProps, ComponentCustomProps, ObjectEmitsOptions, VNode, VNodeProps } from "vue"
+import { AllowedComponentProps, ComponentCustomProps, ObjectEmitsOptions, VNodeProps } from "vue"
 export type IMode = "filled" | "outlined" | "underlined"
 export type PositionShort =
   | "top"
@@ -40,7 +40,7 @@ declare type PublicProps = VNodeProps & AllowedComponentProps & ComponentCustomP
 declare type EmitFn<Options = ObjectEmitsOptions, Event extends keyof Options = keyof Options> =
   Options extends Array<infer V>
     ? (event: V, ...args: any[]) => void
-    : {} extends Options
+    : object extends Options
       ? (event: string, ...args: any[]) => void
       : UnionToIntersection<
           {

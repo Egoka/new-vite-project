@@ -23,9 +23,9 @@
     "pack": "cd dist && npm pack --pack-destination='../'",
     "format": "prettier --write \"**/*.{js,vue,d.ts}\" --cache",
     "format:check": "prettier --check \"**/*.{js,vue,d.ts}\"",
-    "lint": "eslint",
+    "lint": "eslint --fix .",
     "lint:fix": "eslint --fix --ext \".js,.vue\" --ignore-path .gitignore .",
-    "prepare": "husky"
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,md,html,css,scss,vue}": "prettier --write",
