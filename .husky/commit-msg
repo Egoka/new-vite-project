@@ -1,1 +1,1 @@
-npm commitlint --edit
+npx --no -- commitlint --edit
