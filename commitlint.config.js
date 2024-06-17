@@ -1,25 +1,56 @@
 export default {
+  parserPreset: { parserOpts: { headerPattern: /^(\w*)(?:\((.*)\))?!?: (.*)$/ } },
   rules: {
-    "body-leading-blank": [2, "always"],
-    "body-max-line-length": [2, "always", 100],
-    "footer-leading-blank": [2, "always"],
-    "footer-max-line-length": [2, "always", 100],
+    "subject-exclamation-mark": [2, "never"],
+    "body-leading-blank": [1, "always"],
+    "footer-leading-blank": [1, "always"],
     "header-max-length": [2, "always", 100],
-    "header-full-stop": [2, "never", "."],
+    "scope-case": [2, "always", "lower-case"],
+    "subject-case": [2, "never", ["sentence-case", "start-case", "pascal-case", "upper-case"]],
     "subject-empty": [2, "never"],
+    "subject-full-stop": [2, "never", "."],
     "type-case": [2, "always", "lower-case"],
     "type-empty": [2, "never"],
     "type-enum": [
       2,
       "always",
-      [
-        "feat", // Фича
-        "fix", // Исправление бага
-        "refactor", // Рефакторинг кода
-        "chore", // Изменение файлов, которые не являются частью проекта (Конфиги, библиотеки)
-        "docs" // исправление документации
-      ]
+      ["build", "ci", "docs", "feat", "fix", "perf", "refactor", "chore", "revert", "style", "test"]
     ]
   },
   extends: ["@commitlint/config-conventional"]
 }
+// type-enum
+// "foo: some message" # fails
+// "fix: some message" # passes
+//
+// type-case
+// "FIX: some message" # fails
+// "fix: some message" # passes
+//
+// type-empty
+// ": some message" # fails
+// "fix: some message" # passes
+//
+// scope-case
+// "fix(SCOPE): some message" # fails
+// "fix(scope): some message" # passes
+//
+// subject-case
+// "fix(SCOPE): Some message" # fails
+// "fix(SCOPE): Some Message" # fails
+// "fix(SCOPE): SomeMessage" # fails
+// "fix(SCOPE): SOMEMESSAGE" # fails
+// "fix(scope): some message" # passes
+// "fix(scope): some Message" # passes
+//
+// subject-empty
+// echo "fix:" # fails
+// echo "fix: some message" # passes
+//
+// subject-full-stop
+// echo "fix: some message." # fails
+// echo "fix: some message" # passes
+//
+// header-max-length
+// echo "fix: some message that is way too long and breaks the line max-length by several characters" # fails
+// echo "fix: some message" # passes
