@@ -5,6 +5,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "./dist/vue-component-npm-example.umd.cjs",
   "module": "./dist/vue-component-npm-example.js",
   "types": "./dist/main.d.ts",
