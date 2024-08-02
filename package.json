@@ -63,7 +63,6 @@
     "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-promise": "^6.2.0",
     "eslint-plugin-vue": "^9.26.0",
-    "fishtvue": "file:fishtvue-0.0.1.tgz",
     "fs-extra": "^11.2.0",
     "husky": "^9.0.11",
     "path": "^0.12.7",
