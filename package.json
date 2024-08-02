@@ -18,7 +18,7 @@
   "scripts": {
     "dev": "vite",
     "patch": "npm version patch",
-    "build:rollup": "NODE_ENV=production rollup -c",
+    "build": "NODE_ENV=production rollup -c",
     "preview": "vite preview",
     "pack": "cd dist && npm pack --pack-destination='../'",
     "format": "prettier --write \"**/*.{js,vue,d.ts}\" --cache",
