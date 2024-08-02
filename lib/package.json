@@ -1,37 +1,12 @@
 {
-  "name": "primevue",
+  "name": "@egorkas/vite-components",
   "version": "",
   "private": false,
-  "author": "PrimeTek Informatics",
-  "homepage": "https://primevue.org/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/primefaces/primevue.git"
-  },
+  "type": "module",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/primefaces/primevue/issues"
-  },
   "keywords": [
-    "primevue",
-    "vue",
-    "vue.js",
-    "vue2",
-    "vue3",
-    "ui library",
-    "component library",
-    "material",
-    "bootstrap",
-    "fluent",
-    "tailwind",
-    "unstyled",
-    "passthrough"
+    "vue"
   ],
-  "web-types": "./web-types.json",
-  "vetur": {
-    "tags": "./vetur-tags.json",
-    "attributes": "./vetur-attributes.json"
-  },
   "peerDependencies": {
     "vue": "^3.0.0"
   }
