@@ -1,6 +1,9 @@
 {
   "name": "@egorkas/vite-components",
   "version": "",
+  "publishConfig": {
+    "access": "public"
+  },
   "private": false,
   "type": "module",
   "license": "MIT",
