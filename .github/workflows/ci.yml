@@ -31,7 +31,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: node
-          package-name: your-package-name
+          package-name: @egorkas/vite-components
 
       - name: Push changes
         if: steps.release.outputs.release_created == 'true'
