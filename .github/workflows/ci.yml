@@ -1,36 +1,23 @@
 name: CI
-
 on:
   push:
-    branches:
-      - main
+    branches: main
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: read
+      packages: write # allow GITHUB_TOKEN to publish packages
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
         with:
-          node-version: '20'
-          registry-url: 'https://registry.npmjs.org'
-
-      - name: Install dependencies
-        run: npm ci
-
+          node-version: "20"
+      - run: npm ci
       - name: Lint and build
         run: npm run lint && npm run build
-
-      - name: Lint and build
-        run: npm run lint && npm run build
-
-      - name: Semantic Release
+      - uses: JS-DevTools/npm-publish@v3
         working-directory: ./dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
