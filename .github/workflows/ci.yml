@@ -25,24 +25,12 @@ jobs:
       - name: Lint and build
         run: npm run lint && npm run build
 
-      - name: Release Please
-        id: release
-        uses: google-github-actions/release-please-action@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          release-type: node
-          package-name: ${{ steps.extract_package_name.outputs.package_name }}
+      - name: Lint and build
+        run: npm run lint && npm run build
 
-      - name: Push changes
-        if: steps.release.outputs.release_created == 'true'
-        run: |
-          git push --follow-tags origin main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Publish to npm
-        if: steps.release.outputs.release_created == 'true'
+      - name: Semantic Release
         working-directory: ./dist
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
