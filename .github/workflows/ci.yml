@@ -12,6 +12,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Validate version input
+        run: |
+          if [[ "${{ github.event.inputs.newversion }}" != "major" && "${{ github.event.inputs.newversion }}" != "minor" && "${{ github.event.inputs.newversion }}" != "patch" ]]; then
+            echo "Invalid input: ${{ github.event.inputs.newversion }}. Only 'major', 'minor', or 'patch' are allowed."
+            exit 1
+          fi
+      - name: Continue with the workflow
+        run:
+          echo "Version input is valid: ${{ github.event.inputs.newversion }}"
       - name: Checkout repository
         uses: actions/checkout@v2
 
@@ -26,6 +35,9 @@ jobs:
 
       - name: Lint and build
         run: npm run lint && npm run build
+
+      - name: Up version
+        run: npm version ${{ github.event.inputs.newversion }}"
 
       - name: Publish to npm
         working-directory: ./dist
