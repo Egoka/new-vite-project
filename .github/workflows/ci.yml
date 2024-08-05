@@ -19,8 +19,7 @@ jobs:
             exit 1
           fi
       - name: Continue with the workflow
-        run:
-          echo "Version input is valid: ${{ github.event.inputs.newversion }}"
+        run: echo "Version input is valid:" ${{ github.event.inputs.newversion }}
       - name: Checkout repository
         uses: actions/checkout@v2
 
