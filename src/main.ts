@@ -15,6 +15,6 @@ const app = createApp(App)
 // app.use(router)
 // @ts-ignore
 // app.use(CodeBlock)
-awd
+console.log(crypto.randomUUID())
 
 app.mount("#app")
