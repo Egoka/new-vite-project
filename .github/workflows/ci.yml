@@ -36,7 +36,7 @@ jobs:
         run: npm run lint && npm run build
 
       - name: Up version
-        run: npm version ${{ github.event.inputs.newversion }}"
+        run: npm version ${{ github.event.inputs.newversion }}
 
       - name: Publish to npm
         working-directory: ./dist
