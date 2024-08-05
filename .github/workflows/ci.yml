@@ -1,11 +1,7 @@
 name: CI
 
 on:
-  workflow_dispatch:
-    inputs:
-      newversion:
-        description: 'Semantic Version Bump Type (major minor patch)'
-        required: true
+  workflow_dispatch
 
 jobs:
   build:
