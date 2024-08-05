@@ -20,7 +20,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "patch": "npm version patch",
+    "patch": "npm version patch -m \"Upgrade to %s for reasons\"",
     "build": "NODE_ENV=production rollup -c",
     "preview": "vite preview",
     "pack": "cd dist && npm pack --pack-destination='../'",
