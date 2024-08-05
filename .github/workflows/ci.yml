@@ -36,7 +36,10 @@ jobs:
         run: npm run lint && npm run build
 
       - name: Up version
-        run: npm version ${{ github.event.inputs.newversion }}
+        run: |
+          git config --global user.name 'Egor Bondarenco'
+          git config --global user.email 'ebondarenko@sitronics.com'
+          npm version ${{ github.event.inputs.newversion }} -m "Upgrade to %s for reasons"
 
       - name: Publish to npm
         working-directory: ./dist
